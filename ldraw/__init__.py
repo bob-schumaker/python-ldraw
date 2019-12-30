@@ -179,7 +179,8 @@ def generate(parts_lst, output_dir, force=False):
 
     with open(library__init__, 'w') as library__init__:
         library__init__.write(LIBRARY_INIT)
-    shutil.copy('ldraw-license.txt', os.path.join(library_path, 'license.txt'))
+    if os.path.exists('ldraw-license.txt'):
+        shutil.copy('ldraw-license.txt', os.path.join(library_path, 'license.txt'))
 
     gen_colours(parts, output_dir)
     gen_parts(parts, output_dir)
